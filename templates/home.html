@@ -1,0 +1,11 @@
+<div>
+ <h1>Create game</h1>
+ <form x-ng-submit="submit()">
+  Type: <select name="gamemode"><option value="banningdraft">Banning Draft</option></select>
+  <input type="submit" name="create" value="Create">
+ </form>
+ <div x-ng-show="gameLinkShow">
+   Read link: <a x-ng-click="viewMatch(match.readKey)">{{gameReadLink}}</a><br>
+   Edit link: <a x-ng-click="viewMatch(match.editKey)">{{gameEditLink}}</a>
+ </div>
+</div>

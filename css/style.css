@@ -1,0 +1,92 @@
+html, body {
+}
+
+#wrapper {
+	width: 1644px;
+	margin: 0 auto;
+}
+
+#game_status {
+  border: 1px solid #000000;
+  margin-top: 10px;
+  font-size: 1.3em;
+}
+
+#game_content {
+  margin-top: 10px;
+}
+
+#hero_pool_wrapper {
+  float: left;
+  width: 100%;
+}
+
+#hero_pool {
+  width: 1080px;
+  border: 1px solid #000000;
+  margin: 0 282px 0 282px; /*Margins for content column. Should be "0 RightColumnWidth 0 LeftColumnWidth*/
+}
+
+#hero_radiant {
+  float: left;
+  width: 270px; /*Width of left column in pixel*/
+  margin-left: -1644px; /*Set margin to that of -(MainContainerWidth)*/
+  border: 1px solid #000000;
+}
+
+#hero_dire {
+  float: left;
+  width: 270px; /*Width of right column*/
+  margin-left: -272px; /*Set left margin to -(RightColumnWidth)*/
+  border: 1px solid #000000;
+}
+
+
+.hero_portrait {
+  padding: 0;
+  margin: 5px;
+  text-align: center;
+  width: 256px;
+  border: 2px solid #000000;
+  font-size: 1.2em;
+  display: inline-block;
+  height: 180px;
+  position: relative;
+}
+
+#hero_pool .hero_portrait { cursor: pointer; }
+#hero_pool .banned { border: 2px solid #FF0000; }
+#hero_pool .radiant,
+#hero_pool .dire { border: 2px solid #00FF00; }
+
+#hero_pool .radiant,
+#hero_pool .dire,
+#hero_pool.spectator .hero_portrait,
+#hero_pool .banned,
+#hero_pool .surplus {
+  cursor: auto;
+}
+
+#hero_radiant.picking,
+#hero_dire.picking { border: 1px solid #FFDD00; }
+
+.hero_overlay,
+.hero_overlay_check,
+.hero_overlay_cross { display: none; }
+
+.banned .hero_overlay,
+.radiant .hero_overlay,
+.dire .hero_overlay  {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #000000;
+  opacity: 0.7;
+  width: 100%;
+  height: 100%;
+}
+
+.banned .hero_overlay .hero_overlay_cross { display: inline; }
+.radiant .hero_overlay .hero_overlay_check,
+.dire .hero_overlay .hero_overlay_check { display: inline; }

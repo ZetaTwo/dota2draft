@@ -1,0 +1,32 @@
+<div id="game_status">
+  {{message}}
+</div>
+<div id="game_content">
+ <div id="hero_pool_wrapper">
+  <div id="hero_pool" x-ng-class="client_status">
+   <h2>Hero pool</h2>
+   <div x-ng-repeat="hero in pool_heroes" class="hero_portrait" x-ng-class="hero.status" x-ng-click="clickHero(hero)">
+    <div class="hero_overlay">
+     <img class="hero_overlay_cross" src="img/cross.png">
+     <img class="hero_overlay_check" src="img/check.png">
+    </div>
+    <img x-ng-src="http://media.steampowered.com/apps/dota2/images/heroes/{{hero.name | HeroImage}}_full.png"><br>
+    {{hero.localized_name}}
+   </div>
+  </div>
+ </div>
+ <div id="hero_radiant" x-ng-class="radiant_class">
+  <h2>Radiant</h2>
+  <div x-ng-repeat="hero in radiant_heroes" class="hero_portrait">
+    <img x-ng-src="http://media.steampowered.com/apps/dota2/images/heroes/{{hero.name | HeroImage}}_full.png"><br>
+    {{hero.localized_name}}
+   </div>
+ </div>
+ <div id="hero_dire" x-ng-class="dire_class">
+  <h2>Dire</h2>
+  <div x-ng-repeat="hero in dire_heroes" class="hero_portrait">
+    <img x-ng-src="http://media.steampowered.com/apps/dota2/images/heroes/{{hero.name | HeroImage}}_full.png"><br>
+    {{hero.localized_name}}
+   </div>
+ </div>
+</div>
