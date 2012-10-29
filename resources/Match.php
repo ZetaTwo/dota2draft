@@ -74,13 +74,14 @@ class MatchResource extends Resource {
       }
       
       //Select heroes
-      $stmt = $database->prepare('SELECT heroes.id AS id, heroes.name AS name, heroes.localized_name AS localized_name, matchheroes.status AS status FROM d2draft_heroes AS heroes, d2draft_matches AS matches, d2draft_matchheroes AS matchheroes WHERE heroes.id = matchheroes.hero_id AND matchheroes.match_id = matches.id AND matches.id=?;');
+      $stmt = $database->prepare('SELECT matchheroes.id AS id, heroes.id AS hero_id, heroes.name AS name, heroes.localized_name AS localized_name, matchheroes.status AS status  FROM d2draft_heroes AS heroes, d2draft_matches AS matches, d2draft_matchheroes AS matchheroes WHERE heroes.id = matchheroes.hero_id AND matchheroes.match_id = matches.id AND matches.id=?;');
       print_r($database->error);
       $stmt->bind_param('i', $matchId);
       $stmt->execute();
-      $stmt->bind_result($heroId, $heroName, $heroLocalizedName, $status);
+      $stmt->bind_result($matchHeroId, $heroId, $heroName, $heroLocalizedName, $status);
       while($stmt->fetch()) {
         $response['heroes'][] = array('id' => $heroId,
+                                      'match_hero_id' => $matchHeroId,
                                       'name' => $heroName,
                                       'localized_name' => $heroLocalizedName,
                                       'status' => strtolower($status));
@@ -94,9 +95,9 @@ class MatchResource extends Resource {
   }
 	
 	/**
-     * @method POST
+   * @method POST
 	 * @return str
-     */
+   */
 	function createMatch() {
 		$config = Config::Instance();
 		$database = Database::Instance();
@@ -140,8 +141,6 @@ class MatchResource extends Resource {
 			$response = json_encode($response);
 			return new Response(Response::CREATED, $response, $headers); 
 		}
-		
-		
 	}
 	
 	private function CreateMatchDb($readKey, $editKey, $type) {

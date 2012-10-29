@@ -8,8 +8,9 @@ html, body {
 
 #game_status {
   border: 1px solid #000000;
-  margin-top: 10px;
   font-size: 1.3em;
+  margin: 10px;
+  padding: 5px;
 }
 
 #game_content {
@@ -41,17 +42,37 @@ html, body {
   border: 1px solid #000000;
 }
 
+#hero_radiant h2,
+#hero_dire h2 {
+  margin: 0;
+}
+
 
 .hero_portrait {
   padding: 0;
   margin: 5px;
-  text-align: center;
-  width: 256px;
+  width: 300px;
   border: 2px solid #000000;
-  font-size: 1.2em;
+  font-size: 1.5em;
   display: inline-block;
-  height: 180px;
+  height: 33px;
   position: relative;
+}
+
+.hero_portrait_big {
+  padding: 0;
+  margin: 2px;
+  display: inline-block;
+  border: 2px solid #000000;
+  width: 256px;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.hero_portrait img {
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
 }
 
 #hero_pool .hero_portrait { cursor: pointer; }

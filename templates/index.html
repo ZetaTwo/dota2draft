@@ -10,7 +10,8 @@
   <link rel="stylesheet" href="http://shared.zeta-two.com/blueprint/plugins/fancy-type/screen.css" type="text/css" media="screen, projection"> 
   
   <link rel="stylesheet" href="css/style.css">
-  
+ 
+  <script src="http://cdn.pubnub.com/pubnub-3.1.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular-resource.min.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
@@ -18,6 +19,7 @@
   <base href="/development/dota2draft/">
  </head>
  <body>
+  <div sub-key="sub-31bdff4f-8afa-11e1-b98e-3955e0de91cc" ssl="off" origin="pubsub.pubnub.com" id="pubnub"></div>
   <div id="wrapper">
    <div x-ng-view>
    
